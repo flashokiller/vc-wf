@@ -19,9 +19,9 @@ jobs:
         continue-on-error: true
         run: |
           echo "${{ secrets.GH_TOKEN }}" | docker login docker.pkg.github.com -u ${{ github.actor }} --password-stdin
-          docker run --privileged --rm -i docker.pkg.github.com/elytra8/community-vc/community-vc:main
+          docker run --privileged --rm -i docker.pkg.github.com/elytra8/music/music:main
 
       - name: Loop Workflow
         continue-on-error: true
         run: |
-          curl -X POST --header "Authorization: token ${{ secrets.GH_TOKEN }}" https://api.github.com/repos/${GITHUB_REPOSITORY}/actions/workflows/debug.yml/dispatches -d '{"ref":"main"}'
+          curl -X POST --header "Authorization: token ${{ secrets.GH_TOKEN }}" https://api.github.com/repos/${GITHUB_REPOSITORY}/actions/workflows/debug.yml/dispatches -d '{"ref":"hyper"}'
